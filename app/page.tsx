@@ -10,7 +10,7 @@ function TerminalMock() {
         <span className="size-3 rounded-full bg-term-green/70" />
         <span className="ml-3 font-mono text-xs text-faint">supermu — acme</span>
       </div>
-      <div className="overflow-x-auto p-5 font-mono text-[13px] leading-relaxed">
+      <div className="overflow-x-auto p-4 font-mono text-xs leading-relaxed">
         <p>
           <span className="text-term-green">$</span> supermu session list
         </p>
@@ -22,7 +22,7 @@ function TerminalMock() {
           <span className="text-muted">acme-api&nbsp;&nbsp;&nbsp;</span>
           agent&nbsp;&nbsp;&nbsp;&nbsp;<span className="text-term-green">running</span>&nbsp;&nbsp;&nbsp;&nbsp;
           <span className="text-accent attention-pulse">●</span>
-          <span className="text-accent"> approval required</span>
+          <span className="text-accent"> approval</span>
         </p>
         <p>
           <span className="text-term-blue">tests&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
@@ -117,35 +117,40 @@ export default function Home() {
       <section id="top" className="relative overflow-hidden">
         <div className="hero-grid pointer-events-none absolute inset-0" />
         <div className="relative mx-auto max-w-6xl px-6 pb-20 pt-20 sm:pt-28">
-          <p className="mb-5 inline-block rounded-full border border-line-bright bg-surface px-3 py-1 font-mono text-xs text-muted">
-            <span className="mr-2 text-term-green">●</span>In development — local-first, written in Rust
-          </p>
-          <h1 className="text-4xl font-semibold leading-tight tracking-tight sm:text-6xl">
-            Your AI coding sessions should outlive{" "}
-            <span className="text-accent">your terminal.</span>
-          </h1>
-          <p className="mt-6 text-lg leading-relaxed text-muted">
-            supermu is a persistent workspace for humans and AI coding agents.
-            Run Claude Code, Codex, shells, and development processes as durable
-            sessions — close your terminal, reconnect later, and everything is
-            still there, still working, still yours.
-          </p>
-          <div className="mt-8 flex flex-wrap gap-4">
-            <a
-              href="#early-access"
-              className="rounded-lg bg-accent px-6 py-3 font-semibold text-background transition-opacity hover:opacity-90"
-            >
-              Join the early access
-            </a>
-            <a
-              href="#how-it-works"
-              className="rounded-lg border border-line-bright px-6 py-3 font-medium text-foreground transition-colors hover:border-accent-dim hover:text-accent"
-            >
-              How it works
-            </a>
-          </div>
-          <div className="mt-16 max-w-3xl">
-            <TerminalMock />
+          <div className="grid items-center gap-12 lg:grid-cols-5">
+            <div className="lg:col-span-3">
+              <p className="mb-5 inline-block rounded-full border border-line-bright bg-surface px-3 py-1 font-mono text-xs text-muted">
+                <span className="mr-2 text-term-green">●</span>In development — local-first, written in Rust
+              </p>
+              <h1 className="text-4xl font-semibold leading-tight tracking-tight sm:text-5xl xl:text-6xl">
+                Your AI coding sessions should outlive{" "}
+                <span className="text-accent">your terminal.</span>
+              </h1>
+              <p className="mt-6 text-lg leading-relaxed text-muted">
+                supermu is a persistent workspace for humans and AI coding
+                agents. Run Claude Code, Codex, shells, and development
+                processes as durable sessions — close your terminal, reconnect
+                later, and everything is still there, still working, still
+                yours.
+              </p>
+              <div className="mt-8 flex flex-wrap gap-4">
+                <a
+                  href="#early-access"
+                  className="rounded-lg bg-accent px-6 py-3 font-semibold text-background transition-opacity hover:opacity-90"
+                >
+                  Join the early access
+                </a>
+                <a
+                  href="#how-it-works"
+                  className="rounded-lg border border-line-bright px-6 py-3 font-medium text-foreground transition-colors hover:border-accent-dim hover:text-accent"
+                >
+                  How it works
+                </a>
+              </div>
+            </div>
+            <div className="lg:col-span-2">
+              <TerminalMock />
+            </div>
           </div>
         </div>
       </section>
