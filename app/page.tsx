@@ -120,11 +120,11 @@ export default function Home() {
           <p className="mb-5 inline-block rounded-full border border-line-bright bg-surface px-3 py-1 font-mono text-xs text-muted">
             <span className="mr-2 text-term-green">●</span>In development — local-first, written in Rust
           </p>
-          <h1 className="max-w-3xl text-4xl font-semibold leading-tight tracking-tight sm:text-6xl">
+          <h1 className="text-4xl font-semibold leading-tight tracking-tight sm:text-6xl">
             Your AI coding sessions should outlive{" "}
             <span className="text-accent">your terminal.</span>
           </h1>
-          <p className="mt-6 max-w-2xl text-lg leading-relaxed text-muted">
+          <p className="mt-6 text-lg leading-relaxed text-muted">
             supermu is a persistent workspace for humans and AI coding agents.
             Run Claude Code, Codex, shells, and development processes as durable
             sessions — close your terminal, reconnect later, and everything is
