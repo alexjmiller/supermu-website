@@ -244,7 +244,7 @@ export default function Home() {
                   triage a short queue instead of patrolling terminal tabs
                   wondering which agent stalled forty minutes ago.
                 </p>
-                <p className="text-sm">
+                <p>
                   It&apos;s also why native clients are next on the roadmap — an
                   attention item that can reach your pocket, and be answered from
                   it, is the difference between supervising agents and
@@ -345,7 +345,7 @@ export default function Home() {
                   reaches you, rather than burying it in scrollback.
                 </li>
               </ul>
-              <p className="text-sm">
+              <p>
                 Every such call is a thin wrapper over the same control API
                 humans use — it passes the same default-deny permission engine,
                 authenticated with a per-session identity the agent cannot
@@ -407,7 +407,7 @@ export default function Home() {
                   <span className="text-term-green">$</span> supermu schedule create acme-api triage --cron &quot;0 0 7 * * *&quot; \<br />
                   &nbsp;&nbsp;&nbsp;&nbsp;--session triage -- claude &quot;triage overnight CI&quot;
                 </p>
-                <p className="mt-3 text-xs">
+                <p className="mt-3 text-sm">
                   A scheduled check-in can leave a task for another agent as
                   easily as it raises one for you — the night shift queueing up
                   work for the day shift.
