@@ -15,32 +15,32 @@ function TerminalMock() {
           <span className="text-term-green">$</span> mux session list
         </p>
         <p className="mt-2 text-faint">
-          WORKSPACE&nbsp;&nbsp;SESSION&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;KIND&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;STATE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ATTENTION
+          NAME&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;WORKSPACE&nbsp;&nbsp;KIND&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;STATE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ATTENTION
         </p>
         <p>
+          <span className="text-term-violet">claude&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
           <span className="text-muted">acme-api&nbsp;&nbsp;&nbsp;</span>
-          <span className="text-term-violet">claude&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
           agent&nbsp;&nbsp;&nbsp;&nbsp;<span className="text-term-green">running</span>&nbsp;&nbsp;&nbsp;&nbsp;
           <span className="text-accent attention-pulse">●</span>
           <span className="text-accent"> approval required</span>
         </p>
         <p>
+          <span className="text-term-blue">tests&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
           <span className="text-muted">acme-api&nbsp;&nbsp;&nbsp;</span>
-          <span className="text-term-blue">tests&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
           shell&nbsp;&nbsp;&nbsp;&nbsp;<span className="text-term-green">running</span>
         </p>
         <p>
-          <span className="text-muted">acme-api&nbsp;&nbsp;&nbsp;</span>
           <span className="text-term-blue">dev-server&nbsp;&nbsp;</span>
+          <span className="text-muted">acme-api&nbsp;&nbsp;&nbsp;</span>
           process&nbsp;&nbsp;<span className="text-term-green">running</span>
         </p>
         <p>
+          <span className="text-term-violet">codex&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
           <span className="text-muted">writing&nbsp;&nbsp;&nbsp;&nbsp;</span>
-          <span className="text-term-violet">codex&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
           agent&nbsp;&nbsp;&nbsp;&nbsp;<span className="text-muted">paused</span>
         </p>
         <p className="mt-3">
-          <span className="text-term-green">$</span> mux attach acme-api/claude
+          <span className="text-term-green">$</span> mux attach acme-api claude
         </p>
         <p className="text-muted">
           » reattached — 2h 14m of history, session never stopped
@@ -377,8 +377,11 @@ export default function Home() {
               </div>
               <div className="overflow-x-auto p-5 font-mono text-[13px] leading-relaxed">
                 <p>
-                  <span className="text-term-green">$</span> mux schedule create acme-api/triage
-                  --daily 07:00
+                  <span className="text-term-green">$</span> mux schedule create acme-api triage
+                  --cron &quot;0 0 7 * * *&quot; \
+                </p>
+                <p className="pl-6">
+                  --session triage -- claude &quot;triage overnight CI&quot;
                 </p>
                 <p className="mt-3 text-faint">— next morning —</p>
                 <p className="mt-3 text-muted">
