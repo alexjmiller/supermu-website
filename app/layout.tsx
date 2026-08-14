@@ -14,13 +14,13 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://supermu.app"),
-  title: "supermu — a persistent workspace for AI coding agents and terminals",
+  title: "supermu — a persistent workspace for humans and AI coding agents",
   description:
-    "supermu keeps your shells, coding agents, and long-running development sessions alive, organised, and ready to resume. Start work, detach, reconnect, and keep going.",
+    "Run Claude Code, Codex, shells, and development processes as durable sessions. Close your terminal, reconnect later, and everything is still there — and supermu tells you when an agent actually needs you.",
   openGraph: {
     title: "supermu",
     description:
-      "A persistent development workspace for Claude Code, Codex, shells, and long-running sessions. Your AI coding sessions should outlive your terminal.",
+      "A persistent workspace for humans and AI coding agents. Your AI coding sessions should outlive your terminal.",
     url: "https://supermu.app",
     siteName: "supermu",
     type: "website",
@@ -29,7 +29,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "supermu",
     description:
-      "A persistent development workspace for AI coding agents and terminals.",
+      "A persistent workspace for humans and AI coding agents.",
   },
 };
 

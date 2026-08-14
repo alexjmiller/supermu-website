@@ -22,19 +22,32 @@ npm run build
 npm run lint
 ```
 
-## Positioning rules (agreed 2026-08-14)
+## Positioning rules (agreed 2026-08-14, revised same day after site review)
 
 - Lead with the user problem (persistent AI coding sessions), never with
   architecture jargon (holders, PTYs, MCP, fabric) above the fold.
-- Category phrase: **"persistent development workspace"** on the homepage.
-- Product story progression: **persistent first → AI-native second → distributed later.**
-  Do not claim multi-machine / remote access / agent coordination as shipped —
-  they belong in the NEXT / LATER roadmap cards only.
+- Category phrase: **"a persistent workspace for humans and AI coding agents"**
+  (hero + metadata). The older "persistent development workspace" is retired.
+- Homepage story is four core capabilities, everything else supports them:
+  never lose the session · one workspace · attention (has its own full
+  section, #attention) · real terminal takeover. Architecture detail lives on
+  **/architecture**; the homepage keeps only the short "why sessions survive"
+  summary + link.
+- Roadmap arc: **your sessions survive (NOW) → your workspace follows you
+  (NEXT: native clients + remote) → your agents work together (LATER)**, with
+  the multi-machine fabric (runtime docs/future/distributed-runtime-fabric.md —
+  unscheduled V2) as a future-tense vision line only, never a roadmap card.
+- **Tense policy (relaxed pre-launch, per Alexander 2026-08-14):** features
+  that are built-to-plan and near may be written in confident present tense
+  even if not fully shipped ("slight overpromise" is OK while unlaunched).
+  Exception: **/security stays strictly honest** — its candour is the
+  differentiator; never overpromise there.
 - Keep local-first / no-cloud / real-CLIs-not-API-wrappers visible — it's a
-  differentiator vs cloud agent platforms.
-- The MCP agent-API section (#agent-api) must keep its "in design" badge until
-  the gateway actually ships (runtime Phase 8–9, ADR-0012). Scheduled sessions
-  (#schedules) are shipped (ADR-0008) and may be present-tense — but a scheduled
-  agent leaving tasks *for another agent* is coordination-phase future tense.
+  differentiator vs cloud agent platforms. Never make provider-pricing claims
+  ("no per-token billing" is banned); say supermu runs the real CLI with your
+  existing login rather than proxying model calls through a supermu API.
+- CLI examples use **`supermu`** — the binary answers to both `supermu` and
+  `mux`, and the site teaches the branded form (decided 2026-08-14). Don't mix
+  the two in mocks.
 - Security page (/security) follows ADR-0010's rule: never present permissions,
   budgets, or pause as containment — only the opt-in sandbox is containment.

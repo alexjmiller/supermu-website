@@ -19,8 +19,8 @@ export function SiteNav() {
           <Link href="/#features" className="hidden transition-colors hover:text-foreground sm:block">
             Features
           </Link>
-          <Link href="/#how-it-works" className="hidden transition-colors hover:text-foreground sm:block">
-            How it works
+          <Link href="/architecture" className="hidden transition-colors hover:text-foreground sm:block">
+            Architecture
           </Link>
           <Link href="/#roadmap" className="hidden transition-colors hover:text-foreground sm:block">
             Roadmap
