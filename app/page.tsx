@@ -1,12 +1,5 @@
 import WaitlistForm from "./components/WaitlistForm";
-
-function Wordmark({ className = "" }: { className?: string }) {
-  return (
-    <span className={`font-mono font-semibold tracking-tight ${className}`}>
-      super<span className="text-accent">μ</span>
-    </span>
-  );
-}
+import { SiteNav, SiteFooter } from "./components/SiteChrome";
 
 function TerminalMock() {
   return (
@@ -107,31 +100,7 @@ const audience = [
 export default function Home() {
   return (
     <main className="flex-1">
-      {/* Nav */}
-      <header className="sticky top-0 z-20 border-b border-line bg-background/80 backdrop-blur">
-        <nav className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
-          <a href="#top" className="text-lg">
-            <Wordmark />
-          </a>
-          <div className="flex items-center gap-6 text-sm text-muted">
-            <a href="#features" className="hidden transition-colors hover:text-foreground sm:block">
-              Features
-            </a>
-            <a href="#how-it-works" className="hidden transition-colors hover:text-foreground sm:block">
-              How it works
-            </a>
-            <a href="#roadmap" className="hidden transition-colors hover:text-foreground sm:block">
-              Roadmap
-            </a>
-            <a
-              href="#early-access"
-              className="rounded-lg border border-accent-dim px-4 py-2 font-medium text-accent transition-colors hover:bg-accent hover:text-background"
-            >
-              Early access
-            </a>
-          </div>
-        </nav>
-      </header>
+      <SiteNav />
 
       {/* Hero */}
       <section id="top" className="relative overflow-hidden">
@@ -218,7 +187,10 @@ export default function Home() {
             ))}
           </div>
           <p className="mt-10 rounded-xl border border-line bg-surface px-6 py-4 text-center font-mono text-xs text-faint">
-            local-first · everything on your machine, in SQLite · no cloud account · no telemetry
+            local-first · everything on your machine, in SQLite · no cloud account · no telemetry ·{" "}
+            <a href="/security" className="text-accent hover:underline">
+              read the security model →
+            </a>
           </p>
         </div>
       </section>
@@ -344,15 +316,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Footer */}
-      <footer className="border-t border-line bg-surface">
-        <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-4 px-6 py-10 sm:flex-row">
-          <Wordmark className="text-muted" />
-          <p className="font-mono text-xs text-faint">
-            © {new Date().getFullYear()} supermu · local-first, always
-          </p>
-        </div>
-      </footer>
+      <SiteFooter />
     </main>
   );
 }
