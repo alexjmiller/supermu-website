@@ -58,12 +58,12 @@ export default function ArchitecturePage() {
         <div className="hero-grid pointer-events-none absolute inset-0" />
         <div className="relative mx-auto max-w-6xl px-6 pb-16 pt-20 sm:pt-24">
           <p className="font-mono text-xs text-faint">supermu / architecture</p>
-          <h1 className="mt-4 max-w-3xl text-4xl font-semibold leading-tight tracking-tight sm:text-5xl">
+          <h1 className="mt-4 text-4xl font-semibold leading-tight tracking-tight sm:text-5xl">
             Persistence is architecture,
             <br />
             <span className="text-accent">not session restore.</span>
           </h1>
-          <p className="mt-6 max-w-2xl text-lg leading-relaxed text-muted">
+          <p className="mt-6 text-lg leading-relaxed text-muted">
             Most tools that promise to save your session snapshot it and hope to
             put it back together later. supermu is built the other way round:
             the process design makes it structurally impossible for a closing
@@ -88,7 +88,7 @@ export default function ArchitecturePage() {
               </div>
             ))}
           </div>
-          <p className="mt-8 max-w-3xl leading-relaxed text-muted">
+          <p className="mt-8 leading-relaxed text-muted">
             The consequence: your terminal, your client, and the runtime itself
             can each go away — separately or together — and the sessions keep
             running. Reconnect and the coordinator hands you back the same
@@ -103,7 +103,7 @@ export default function ArchitecturePage() {
           <h2 className="text-2xl font-semibold tracking-tight sm:text-3xl">
             Invariants the runtime is built on
           </h2>
-          <p className="mt-4 max-w-2xl leading-relaxed text-muted">
+          <p className="mt-4 leading-relaxed text-muted">
             Every one of these comes from a public architecture decision record
             in the runtime repository — written before the code, kept honest by
             it.

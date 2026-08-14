@@ -98,12 +98,12 @@ export default function SecurityPage() {
         <div className="hero-grid pointer-events-none absolute inset-0" />
         <div className="relative mx-auto max-w-6xl px-6 pb-16 pt-20 sm:pt-24">
           <p className="font-mono text-xs text-faint">supermu / security</p>
-          <h1 className="mt-4 max-w-3xl text-4xl font-semibold leading-tight tracking-tight sm:text-5xl">
+          <h1 className="mt-4 text-4xl font-semibold leading-tight tracking-tight sm:text-5xl">
             Agents act with real authority.
             <br />
             <span className="text-accent">We design like that&apos;s dangerous</span> — because it is.
           </h1>
-          <p className="mt-6 max-w-2xl text-lg leading-relaxed text-muted">
+          <p className="mt-6 text-lg leading-relaxed text-muted">
             supermu supervises AI agents that run real commands on your machine.
             That power is the product, so its security model is a first-class part
             of the architecture — designed up front, written down in public
@@ -156,7 +156,7 @@ export default function SecurityPage() {
           <h2 className="text-2xl font-semibold tracking-tight sm:text-3xl">
             How the runtime restrains agents
           </h2>
-          <p className="mt-4 max-w-2xl leading-relaxed text-muted">
+          <p className="mt-4 leading-relaxed text-muted">
             The threat we take most seriously isn&apos;t a network attacker — it&apos;s a
             confused or prompt-injected agent acting with your own authority. The
             runtime is built around that assumption.
@@ -178,7 +178,7 @@ export default function SecurityPage() {
           <h2 className="text-2xl font-semibold tracking-tight sm:text-3xl">
             Client apps and remote access
           </h2>
-          <p className="mt-4 max-w-2xl leading-relaxed text-muted">
+          <p className="mt-4 leading-relaxed text-muted">
             The Mac and iPhone apps are views into your runtime, not copies of it.
             The rules below govern every client, on every platform, from the first
             release.
@@ -200,7 +200,7 @@ export default function SecurityPage() {
           <h2 className="text-2xl font-semibold tracking-tight sm:text-3xl">
             Using supermu securely
           </h2>
-          <p className="mt-4 max-w-2xl leading-relaxed text-muted">
+          <p className="mt-4 leading-relaxed text-muted">
             The runtime restrains what agents can do through supermu. What keeps
             you safe overall is the combination of those controls and how you run
             things. Six habits that matter most:
@@ -225,12 +225,12 @@ export default function SecurityPage() {
           <h2 className="text-2xl font-semibold tracking-tight sm:text-3xl">
             What we don&apos;t claim
           </h2>
-          <p className="mt-4 max-w-2xl leading-relaxed text-muted">
+          <p className="mt-4 leading-relaxed text-muted">
             Security pages usually stop at the reassuring part. These are the
             boundaries as they actually stand — so your decisions are based on
             what&apos;s true, not what sounds good:
           </p>
-          <ul className="mt-8 max-w-3xl space-y-4">
+          <ul className="mt-8 space-y-4">
             {honesty.map((item) => (
               <li key={item} className="flex gap-3 text-sm leading-relaxed text-muted">
                 <span className="mt-0.5 shrink-0 text-accent">—</span>
