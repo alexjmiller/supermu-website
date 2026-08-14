@@ -419,7 +419,7 @@ export default function Home() {
           <h2 className="text-3xl font-semibold tracking-tight sm:text-4xl">
             Persistent first. Portable next. Cooperative later.
           </h2>
-          <p className="mt-4 max-w-2xl leading-relaxed text-muted">
+          <p className="mt-4 leading-relaxed text-muted">
             The core runtime works today. What&apos;s built on top of it arrives in
             order — and we&apos;ll only ever claim the part that ships.
           </p>
@@ -452,7 +452,7 @@ export default function Home() {
               </p>
             </div>
           </div>
-          <p className="mt-8 max-w-3xl leading-relaxed text-muted">
+          <p className="mt-8 leading-relaxed text-muted">
             <span className="text-foreground">And further out: one workspace, even when the work runs
             somewhere else.</span>{" "}
             Today a supermu workspace lives on one host. The design direction is
