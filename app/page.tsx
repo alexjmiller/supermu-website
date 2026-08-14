@@ -14,15 +14,15 @@ function TerminalMock() {
         <p>
           <span className="text-term-green">$</span> supermu session list
         </p>
-        <p className="mt-2 text-faint">
+        <p className="mt-2 whitespace-nowrap text-faint">
           NAME&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;WORKSPACE&nbsp;&nbsp;KIND&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;STATE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ATTENTION
         </p>
-        <p>
+        <p className="whitespace-nowrap">
           <span className="text-term-violet">claude&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
           <span className="text-muted">acme-api&nbsp;&nbsp;&nbsp;</span>
           agent&nbsp;&nbsp;&nbsp;&nbsp;<span className="text-term-green">running</span>&nbsp;&nbsp;&nbsp;&nbsp;
           <span className="text-accent attention-pulse">●</span>
-          <span className="text-accent"> approval</span>
+          <span className="text-accent">&nbsp;approval</span>
         </p>
         <p>
           <span className="text-term-blue">tests&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
@@ -43,7 +43,7 @@ function TerminalMock() {
           <span className="text-term-green">$</span> supermu attach acme-api claude
         </p>
         <p className="text-muted">
-          » reattached — 2h 14m of history, session never stopped
+          » reattached — 2h 14m of history, nothing lost
           <span className="cursor-blink text-foreground">▍</span>
         </p>
       </div>
@@ -260,11 +260,11 @@ export default function Home() {
       {/* Who it's for */}
       <section className="border-t border-line">
         <div className="mx-auto max-w-6xl px-6 py-20">
-          <h2 className="max-w-3xl text-3xl font-semibold tracking-tight sm:text-4xl">
+          <h2 className="text-3xl font-semibold tracking-tight sm:text-4xl">
             For developers with more AI sessions than they can
             <span className="text-muted"> comfortably keep track of.</span>
           </h2>
-          <p className="mt-6 max-w-2xl leading-relaxed text-muted">
+          <p className="mt-6 leading-relaxed text-muted">
             If Claude Code stays open all day, you run several agents in
             parallel, or your terminal windows have quietly become a makeshift
             agent dashboard — supermu is for you. The same workspace scales from
