@@ -32,3 +32,9 @@ npm run lint
   they belong in the NEXT / LATER roadmap cards only.
 - Keep local-first / no-cloud / real-CLIs-not-API-wrappers visible — it's a
   differentiator vs cloud agent platforms.
+- The MCP agent-API section (#agent-api) must keep its "in design" badge until
+  the gateway actually ships (runtime Phase 8–9, ADR-0012). Scheduled sessions
+  (#schedules) are shipped (ADR-0008) and may be present-tense — but a scheduled
+  agent leaving tasks *for another agent* is coordination-phase future tense.
+- Security page (/security) follows ADR-0010's rule: never present permissions,
+  budgets, or pause as containment — only the opt-in sandbox is containment.

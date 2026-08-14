@@ -58,7 +58,7 @@ const features = [
   },
   {
     title: "AI agents are first-class",
-    body: "Coding agents aren't sidebars or disposable chats. They're named, persistent sessions with state, activity, and history — plus budgets and pause-not-kill runaway control, so autonomy has limits you set.",
+    body: "Coding agents aren't sidebars or disposable chats. They're named, persistent sessions with state, activity, and history — plus schedules, budgets, and pause-not-kill runaway control, so autonomy has limits you set.",
   },
   {
     title: "One workspace for everything",
@@ -250,6 +250,153 @@ export default function Home() {
                 over one versioned protocol. If closing a client could destroy
                 work, the architecture would be wrong. It can&apos;t, so it isn&apos;t.
               </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Agent API / MCP */}
+      <section id="agent-api" className="border-t border-line bg-surface">
+        <div className="mx-auto max-w-6xl px-6 py-20">
+          <p className="mb-4 inline-block rounded-full border border-line-bright bg-background px-3 py-1 font-mono text-xs text-term-violet">
+            in design — ships with the agent-coordination phase
+          </p>
+          <h2 className="max-w-3xl text-3xl font-semibold tracking-tight sm:text-4xl">
+            Terminals give agents a screen.
+            <span className="text-accent"> supermu gives them an API.</span>
+          </h2>
+          <div className="mt-10 grid gap-10 md:grid-cols-2">
+            <div className="space-y-4 leading-relaxed text-muted">
+              <p>
+                Everything in supermu is an addressable session behind one
+                control API — so agents don&apos;t have to scrape terminal output to
+                know what&apos;s going on around them. Through the Model Context
+                Protocol, which Claude Code and other agent CLIs already speak,
+                an agent will see the runtime the way it sees an operating
+                system: the workspace it&apos;s in, the sessions beside it, what
+                needs attention, and the tasks that concern it.
+              </p>
+              <p>That opens ways of working no terminal offers:</p>
+              <ul className="space-y-3 text-sm">
+                <li className="flex gap-3">
+                  <span className="mt-0.5 text-accent">→</span>
+                  An agent tails the test session and starts fixing failures —
+                  no copy-pasting output between windows.
+                </li>
+                <li className="flex gap-3">
+                  <span className="mt-0.5 text-accent">→</span>
+                  One agent hands a task to another and collects the result,
+                  instead of you replaying context between them.
+                </li>
+                <li className="flex gap-3">
+                  <span className="mt-0.5 text-accent">→</span>
+                  An agent with a question raises it as an attention item that
+                  reaches you, rather than burying it in scrollback.
+                </li>
+              </ul>
+              <p className="text-sm">
+                Every such call is a thin wrapper over the same control API
+                humans use — it passes the same default-deny permission engine,
+                authenticated with a per-session identity the agent cannot
+                forge. New power, same rules.
+              </p>
+            </div>
+            <div className="overflow-hidden self-start rounded-xl border border-line-bright bg-background shadow-[0_24px_80px_-24px_rgb(0_0_0/0.8)]">
+              <div className="flex items-center gap-2 border-b border-line bg-surface-2 px-4 py-3">
+                <span className="size-2 rounded-full bg-term-violet" />
+                <span className="font-mono text-xs text-faint">
+                  mcp — session://acme-api/claude
+                </span>
+              </div>
+              <div className="overflow-x-auto p-5 font-mono text-[13px] leading-relaxed">
+                <p className="text-faint">
+                  tools: workspace_inspect · session_tail · task_send · attention_raise
+                </p>
+                <p className="mt-3">
+                  <span className="text-term-violet">→</span> session_tail(&quot;acme-api/tests&quot;)
+                </p>
+                <p className="text-muted">
+                  <span className="text-faint">← untrusted ▸</span> FAIL auth.test.ts — 3 of 214
+                </p>
+                <p className="mt-3">
+                  <span className="text-term-violet">→</span> task_send(&quot;acme-api/codex&quot;,
+                  &quot;fix the 3 auth failures&quot;)
+                </p>
+                <p className="text-muted">
+                  <span className="text-faint">←</span> accepted · task 018f…
+                </p>
+                <p className="mt-3">
+                  <span className="text-term-violet">→</span> attention_raise(question,
+                  &quot;token TTL: 15m or 30m?&quot;)
+                </p>
+                <p className="text-muted">
+                  <span className="text-faint">←</span> raised · owner will be notified
+                  <span className="cursor-blink text-foreground">▍</span>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Scheduled work */}
+      <section id="schedules" className="border-t border-line">
+        <div className="mx-auto max-w-6xl px-6 py-20">
+          <div className="grid gap-10 md:grid-cols-2">
+            <div>
+              <h2 className="text-3xl font-semibold tracking-tight sm:text-4xl">
+                Work that runs on a clock,
+                <span className="text-muted"> not on your attention</span>
+              </h2>
+              <div className="mt-6 space-y-4 leading-relaxed text-muted">
+                <p>
+                  The schedule engine is already in the runtime: any session —
+                  including an agent — can spin up at a set time, do its job, and
+                  exit. Because sessions are persistent and recorded,
+                  &ldquo;finished&rdquo; doesn&apos;t mean &ldquo;gone&rdquo;: the full transcript is there
+                  to inspect, and anything that needs a human becomes an
+                  attention item waiting for you.
+                </p>
+                <p>
+                  Morning CI triage, a nightly dependency check, a weekly tidy of
+                  a backlog — work that happens whether or not a terminal is
+                  open, on a budget you set.
+                </p>
+                <p className="text-sm">
+                  And when the coordination phase lands, a scheduled check-in
+                  will be able to leave a task for another agent as easily as it
+                  raises one for you — the night shift queueing up work for the
+                  day shift.
+                </p>
+              </div>
+            </div>
+            <div className="self-center overflow-hidden rounded-xl border border-line-bright bg-surface shadow-[0_24px_80px_-24px_rgb(0_0_0/0.8)]">
+              <div className="flex items-center gap-2 border-b border-line bg-surface-2 px-4 py-3">
+                <span className="size-2 rounded-full bg-term-green" />
+                <span className="font-mono text-xs text-faint">schedule — acme-api/triage</span>
+              </div>
+              <div className="overflow-x-auto p-5 font-mono text-[13px] leading-relaxed">
+                <p>
+                  <span className="text-term-green">$</span> mux schedule create acme-api/triage
+                  --daily 07:00
+                </p>
+                <p className="mt-3 text-faint">— next morning —</p>
+                <p className="mt-3 text-muted">
+                  <span className="text-faint">07:00</span> triage started · agent
+                </p>
+                <p className="text-muted">
+                  <span className="text-faint">07:06</span> exited(0) · transcript kept
+                </p>
+                <p className="mt-3">
+                  <span className="text-accent attention-pulse">●</span>
+                  <span className="text-accent"> attention</span>
+                  <span className="text-muted">
+                    {" "}
+                    — &ldquo;2 flaky tests quarantined; PR #142 needs a decision&rdquo;
+                    <span className="cursor-blink text-foreground">▍</span>
+                  </span>
+                </p>
+              </div>
             </div>
           </div>
         </div>
