@@ -161,7 +161,7 @@ export default function SecurityPage() {
             confused or prompt-injected agent acting with your own authority. The
             runtime is built around that assumption.
           </p>
-          <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="mt-10 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {runtimeMeasures.map((m) => (
               <div key={m.title} className="rounded-xl border border-line bg-surface p-6">
                 <h3 className="font-mono text-sm font-semibold text-accent">{m.title}</h3>
@@ -183,7 +183,7 @@ export default function SecurityPage() {
             The rules below govern every client, on every platform, from the first
             release.
           </p>
-          <div className="mt-10 grid gap-6 sm:grid-cols-2">
+          <div className="mt-10 grid grid-cols-1 gap-6 sm:grid-cols-2">
             {clientMeasures.map((m) => (
               <div key={m.title} className="rounded-xl border border-line bg-background p-6">
                 <h3 className="font-mono text-sm font-semibold text-accent">{m.title}</h3>
@@ -205,7 +205,7 @@ export default function SecurityPage() {
             you safe overall is the combination of those controls and how you run
             things. Six habits that matter most:
           </p>
-          <div className="mt-10 grid gap-x-10 gap-y-8 md:grid-cols-2">
+          <div className="mt-10 grid grid-cols-1 gap-x-10 gap-y-8 md:grid-cols-2">
             {practices.map((p, i) => (
               <div key={p.title} className="flex gap-4">
                 <span className="font-mono text-sm text-faint">{String(i + 1).padStart(2, "0")}</span>

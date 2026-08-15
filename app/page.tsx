@@ -15,28 +15,24 @@ function TerminalMock() {
           <span className="text-term-green">$</span> supermu session list
         </p>
         <p className="mt-2 whitespace-nowrap text-faint">
-          NAME&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;WORKSPACE&nbsp;&nbsp;KIND&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;STATE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ATTENTION
+          NAME&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;KIND&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;STATE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ATTENTION
         </p>
         <p className="whitespace-nowrap">
           <span className="text-term-violet">claude&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-          <span className="text-muted">acme-api&nbsp;&nbsp;&nbsp;</span>
-          agent&nbsp;&nbsp;&nbsp;&nbsp;<span className="text-term-green">running</span>&nbsp;&nbsp;&nbsp;&nbsp;
+          agent&nbsp;&nbsp;&nbsp;&nbsp;<span className="text-term-green">running</span>&nbsp;&nbsp;&nbsp;
           <span className="text-accent attention-pulse">●</span>
           <span className="text-accent">&nbsp;approval</span>
         </p>
         <p>
           <span className="text-term-blue">tests&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-          <span className="text-muted">acme-api&nbsp;&nbsp;&nbsp;</span>
           shell&nbsp;&nbsp;&nbsp;&nbsp;<span className="text-term-green">running</span>
         </p>
         <p>
           <span className="text-term-blue">dev-server&nbsp;&nbsp;</span>
-          <span className="text-muted">acme-api&nbsp;&nbsp;&nbsp;</span>
           process&nbsp;&nbsp;<span className="text-term-green">running</span>
         </p>
         <p>
           <span className="text-term-violet">codex&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-          <span className="text-muted">writing&nbsp;&nbsp;&nbsp;&nbsp;</span>
           agent&nbsp;&nbsp;&nbsp;&nbsp;<span className="text-muted">paused</span>
         </p>
         <p className="mt-3">
@@ -117,7 +113,7 @@ export default function Home() {
       <section id="top" className="relative overflow-hidden">
         <div className="hero-grid pointer-events-none absolute inset-0" />
         <div className="relative mx-auto max-w-6xl px-6 pb-20 pt-20 sm:pt-28">
-          <div className="grid items-center gap-12 lg:grid-cols-5">
+          <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-5">
             <div className="lg:col-span-3">
               <p className="mb-5 inline-block rounded-full border border-line-bright bg-surface px-3 py-1 font-mono text-xs text-muted">
                 <span className="mr-2 text-term-green">●</span>In development — local-first, written in Rust
@@ -158,7 +154,7 @@ export default function Home() {
       {/* Problem */}
       <section className="border-t border-line bg-surface">
         <div className="mx-auto max-w-6xl px-6 py-20">
-          <div className="grid gap-10 md:grid-cols-2">
+          <div className="grid grid-cols-1 gap-10 md:grid-cols-2">
             <h2 className="text-3xl font-semibold tracking-tight sm:text-4xl">
               AI coding tools keep getting more capable.
               <span className="text-muted"> The terminal they live in is still temporary.</span>
@@ -193,7 +189,7 @@ export default function Home() {
           <h2 className="text-3xl font-semibold tracking-tight sm:text-4xl">
             A workspace, not a window
           </h2>
-          <div className="mt-12 grid gap-6 sm:grid-cols-2">
+          <div className="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-2">
             {features.map((f) => (
               <div
                 key={f.title}
@@ -225,7 +221,7 @@ export default function Home() {
       {/* Attention */}
       <section id="attention" className="border-t border-line bg-surface">
         <div className="mx-auto max-w-6xl px-6 py-20">
-          <div className="grid gap-10 md:grid-cols-2">
+          <div className="grid grid-cols-1 gap-10 md:grid-cols-2">
             <div>
               <h2 className="text-3xl font-semibold tracking-tight sm:text-4xl">
                 Stop watching agents work.
@@ -428,7 +424,7 @@ export default function Home() {
             The core runtime works today. What&apos;s built on top of it arrives in
             order — and we&apos;ll only ever claim the part that ships.
           </p>
-          <div className="mt-12 grid gap-6 md:grid-cols-3">
+          <div className="mt-12 grid grid-cols-1 gap-6 md:grid-cols-3">
             <div className="rounded-xl border border-term-green/30 bg-background p-6">
               <p className="font-mono text-xs font-semibold text-term-green">NOW</p>
               <h3 className="mt-2 text-lg font-semibold">Your sessions survive</h3>

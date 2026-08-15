@@ -79,7 +79,7 @@ export default function ArchitecturePage() {
           <h2 className="text-2xl font-semibold tracking-tight sm:text-3xl">
             Three roles, three failure domains
           </h2>
-          <div className="mt-10 grid gap-6 md:grid-cols-3">
+          <div className="mt-10 grid grid-cols-1 gap-6 md:grid-cols-3">
             {roles.map((r) => (
               <div key={r.title} className="rounded-xl border border-line bg-background p-6">
                 <p className="font-mono text-xs text-faint">{r.index}</p>
@@ -108,7 +108,7 @@ export default function ArchitecturePage() {
             in the runtime repository — written before the code, kept honest by
             it.
           </p>
-          <div className="mt-10 grid gap-x-10 gap-y-8 md:grid-cols-2">
+          <div className="mt-10 grid grid-cols-1 gap-x-10 gap-y-8 md:grid-cols-2">
             {invariants.map((inv, i) => (
               <div key={inv.title} className="flex gap-4">
                 <span className="font-mono text-sm text-faint">{String(i + 1).padStart(2, "0")}</span>
