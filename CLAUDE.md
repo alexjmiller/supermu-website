@@ -33,15 +33,20 @@ npm run lint
   section, #attention) · real terminal takeover. Architecture detail lives on
   **/architecture**; the homepage keeps only the short "why sessions survive"
   summary + link.
-- Roadmap arc: **your sessions survive (NOW) → your workspace follows you
-  (NEXT: native clients + remote) → your agents work together (LATER)**, with
-  the multi-machine fabric (runtime docs/future/distributed-runtime-fabric.md —
-  unscheduled V2) as a future-tense vision line only, never a roadmap card.
+- Roadmap arc (updated 2026-08-16, runtime Phase 9 complete): **sessions
+  survive (NOW) · agents work together (NOW) → workspace follows you (NEXT:
+  native clients; the runtime's remote approval gate ADR-0015 is live) → one
+  workspace across machines (LATER — the fabric brief, still unscheduled)**.
 - **Tense policy (relaxed pre-launch, per Alexander 2026-08-14):** features
   that are built-to-plan and near may be written in confident present tense
   even if not fully shipped ("slight overpromise" is OK while unlaunched).
   Exception: **/security stays strictly honest** — its candour is the
   differentiator; never overpromise there.
+- The MCP gateway is **live** (runtime 8e + Phase 9, 13 tools, ADR-0012): the
+  #agent-api section is present tense with a "live" badge. Tool names shown in
+  mocks must match the real surface (session_inspect, session_tail,
+  attention_create, task_verify, message_send, …) — check the runtime CLAUDE.md
+  "MCP tool surface" section before editing them.
 - Keep local-first / no-cloud / real-CLIs-not-API-wrappers visible — it's a
   differentiator vs cloud agent platforms. Never make provider-pricing claims
   ("no per-token billing" is banned); say supermu runs the real CLI with your

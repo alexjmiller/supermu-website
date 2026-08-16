@@ -84,7 +84,7 @@ const honesty = [
   "Sessions run as your user by default. Unless you opt a session into a sandbox, permissions restrain the runtime's control API — they do not contain a process that already has your account.",
   "supermu is single-user by design. It has no multi-tenant isolation and shouldn't be shared between people who don't trust each other completely.",
   "Sandbox profiles are yours to choose. The runtime provides the mechanism, but a correct profile depends on the workload, so we don't pretend a default profile would protect every case.",
-  "Remote connection integrity currently rests on your VPN plus per-device authentication at connect time; per-request signing is planned hardening, not a shipped feature.",
+  "Remote clients authenticate with per-device keys and signed requests, but network exposure is still yours to manage: the runtime is designed to live inside your own VPN, not hardened as a public internet service.",
   "Credential hygiene (per-agent keys, secret brokering, redaction of secrets from observed output) is a stated direction landing in phases — not all of it exists today.",
 ];
 

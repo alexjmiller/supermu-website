@@ -236,15 +236,19 @@ export default function Home() {
                   attention items, instead of leaving them buried in scrollback.
                 </p>
                 <p>
-                  That changes the shape of the day: work stays running, and you
-                  triage a short queue instead of patrolling terminal tabs
-                  wondering which agent stalled forty minutes ago.
+                  And it&apos;s deliberate about when it interrupts: an approval
+                  prompt only becomes an attention item if nobody is watching
+                  that session, and it&apos;s withdrawn the moment you attach.
+                  Work stays running, and you triage a short queue instead of
+                  patrolling terminal tabs wondering which agent stalled forty
+                  minutes ago.
                 </p>
                 <p>
-                  It&apos;s also why native clients are next on the roadmap — an
-                  attention item that can reach your pocket, and be answered from
-                  it, is the difference between supervising agents and
-                  babysitting them.
+                  Attention doesn&apos;t just notify — it gates. A risky agent
+                  action can block until you approve or deny it, with everything
+                  else intact. That&apos;s why native clients are next on the
+                  roadmap: the decision already works remotely, and the apps put
+                  it in your pocket.
                 </p>
               </div>
             </div>
@@ -301,8 +305,8 @@ export default function Home() {
       {/* Agent API / MCP */}
       <section id="agent-api" className="border-t border-line">
         <div className="mx-auto max-w-6xl px-6 py-20">
-          <p className="mb-4 inline-block rounded-full border border-line-bright bg-surface px-3 py-1 font-mono text-xs text-term-violet">
-            landing now — the agent-coordination phase is in active development
+          <p className="mb-4 inline-block rounded-full border border-line-bright bg-surface px-3 py-1 font-mono text-xs text-term-green">
+            live — every agent session gets its own scoped gateway
           </p>
           <h2 className="max-w-3xl text-3xl font-semibold tracking-tight sm:text-4xl">
             Terminals give agents a screen.
@@ -313,16 +317,16 @@ export default function Home() {
               <p>
                 An agent shouldn&apos;t have to read another terminal the way a
                 human stares at a screen. Everything in supermu is an addressable
-                session behind one control API, so the workspace can be exposed
-                to agents as structured capabilities: inspect a session, read
-                test results, hand off a task, raise a question.
+                session behind one control API, and the workspace is exposed to
+                agents as structured capabilities: inspect a session, read test
+                results, hand off work, raise a question.
               </p>
               <p>
-                For compatible coding agents, those capabilities arrive through
-                the Model Context Protocol, which Claude Code and other agent
-                CLIs already speak. MCP is the plumbing, though — the idea is
-                the structured workspace behind it, and it opens ways of working
-                no terminal offers:
+                Those capabilities arrive through the Model Context Protocol,
+                which Claude Code and other agent CLIs already speak — each
+                agent session gets its own gateway, wired in automatically. MCP
+                is the plumbing, though; the idea is the structured workspace
+                behind it, and it opens ways of working no terminal offers:
               </p>
               <ul className="space-y-3 text-sm">
                 <li className="flex gap-3">
@@ -332,8 +336,9 @@ export default function Home() {
                 </li>
                 <li className="flex gap-3">
                   <span className="mt-0.5 text-accent">→</span>
-                  One agent hands a task to another and collects the result,
-                  instead of you replaying context between them.
+                  A manager agent hands work to another and gets back a
+                  completion with evidence — verified by an agent that
+                  didn&apos;t do the work.
                 </li>
                 <li className="flex gap-3">
                   <span className="mt-0.5 text-accent">→</span>
@@ -342,10 +347,12 @@ export default function Home() {
                 </li>
               </ul>
               <p>
-                Every such call is a thin wrapper over the same control API
-                humans use — it passes the same default-deny permission engine,
-                authenticated with a per-session identity the agent cannot
-                forge. New power, same rules.
+                Every call passes the same default-deny permission engine humans
+                do, authenticated with a per-session identity the agent cannot
+                forge. What it observes is framed as untrusted; delegation and
+                messaging need an explicitly granted capability; no agent can
+                verify its own work; and runaway loops between agents are
+                detected and broken. New power, same rules.
               </p>
             </div>
             <div className="overflow-hidden self-start rounded-xl border border-line-bright bg-surface shadow-[0_24px_80px_-24px_rgb(0_0_0/0.8)]">
@@ -357,7 +364,8 @@ export default function Home() {
               </div>
               <div className="overflow-x-auto p-5 font-mono text-[13px] leading-relaxed">
                 <p className="text-faint">
-                  tools: workspace_inspect · session_tail · task_send · attention_raise
+                  tools: session_inspect · session_tail · attention_create ·
+                  task_verify · message_send · …
                 </p>
                 <p className="mt-3">
                   <span className="text-term-violet">→</span> session_tail(&quot;acme-api/tests&quot;)
@@ -366,18 +374,18 @@ export default function Home() {
                   <span className="text-faint">← untrusted ▸</span> FAIL auth.test.ts — 3 of 214
                 </p>
                 <p className="mt-3">
-                  <span className="text-term-violet">→</span> task_send(&quot;acme-api/codex&quot;,
+                  <span className="text-term-violet">→</span> message_send(&quot;acme-api/codex&quot;,
                   &quot;fix the 3 auth failures&quot;)
                 </p>
                 <p className="text-muted">
-                  <span className="text-faint">←</span> accepted · task 018f…
+                  <span className="text-faint">←</span> delivered · sender: claude
                 </p>
                 <p className="mt-3">
-                  <span className="text-term-violet">→</span> attention_raise(question,
+                  <span className="text-term-violet">→</span> attention_create(question,
                   &quot;token TTL: 15m or 30m?&quot;)
                 </p>
                 <p className="text-muted">
-                  <span className="text-faint">←</span> raised · owner will be notified
+                  <span className="text-faint">←</span> raised · waiting on you
                   <span className="cursor-blink text-foreground">▍</span>
                 </p>
               </div>
@@ -418,49 +426,52 @@ export default function Home() {
       <section id="roadmap" className="border-t border-line bg-surface">
         <div className="mx-auto max-w-6xl px-6 py-20">
           <h2 className="text-3xl font-semibold tracking-tight sm:text-4xl">
-            Persistent first. Portable next. Cooperative later.
+            Persistent and cooperative today. Portable next. Distributed later.
           </h2>
           <p className="mt-4 leading-relaxed text-muted">
             The core runtime works today. What&apos;s built on top of it arrives in
             order — and we&apos;ll only ever claim the part that ships.
           </p>
-          <div className="mt-12 grid grid-cols-1 gap-6 md:grid-cols-3">
+          <div className="mt-12 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4">
             <div className="rounded-xl border border-term-green/30 bg-background p-6">
               <p className="font-mono text-xs font-semibold text-term-green">NOW</p>
               <h3 className="mt-2 text-lg font-semibold">Your sessions survive</h3>
               <p className="mt-3 text-sm leading-relaxed text-muted">
                 Shells, agents, and processes that survive disconnects and
-                runtime restarts, organised into workspaces, with attention
-                states, schedules, and budgets — driven from the reference CLI.
+                runtime restarts, organised into workspaces, with schedules,
+                budgets, and a first-class attention queue — driven from the
+                reference CLI.
+              </p>
+            </div>
+            <div className="rounded-xl border border-term-green/30 bg-background p-6">
+              <p className="font-mono text-xs font-semibold text-term-green">NOW</p>
+              <h3 className="mt-2 text-lg font-semibold">Your agents work together</h3>
+              <p className="mt-3 text-sm leading-relaxed text-muted">
+                Manager agents delegate to workers with full provenance, work is
+                verified by an agent that didn&apos;t do it, each agent can run
+                in its own git worktree, and loop-breakers stop runaway
+                back-and-forth — all through the live agent API.
               </p>
             </div>
             <div className="rounded-xl border border-accent/30 bg-background p-6">
               <p className="font-mono text-xs font-semibold text-accent">NEXT</p>
               <h3 className="mt-2 text-lg font-semibold">Your workspace follows you</h3>
               <p className="mt-3 text-sm leading-relaxed text-muted">
-                A native Mac cockpit for the whole workspace, then secure device
-                pairing and push — reconnect, triage attention, and approve from
-                your phone, not just your desk.
+                Native Mac and iPhone apps over secure device pairing. The
+                runtime&apos;s remote approval gate already works — the apps put
+                triage and approval in your pocket, not just at your desk.
               </p>
             </div>
             <div className="rounded-xl border border-line bg-background p-6">
               <p className="font-mono text-xs font-semibold text-term-violet">LATER</p>
-              <h3 className="mt-2 text-lg font-semibold">Your agents work together</h3>
+              <h3 className="mt-2 text-lg font-semibold">One workspace across machines</h3>
               <p className="mt-3 text-sm leading-relaxed text-muted">
-                Controlled capabilities for agents to observe sessions, exchange
-                tasks, and coordinate — the agent API above, made live, with a
-                human attention queue in charge of it.
+                Sessions living on the machines where they belong — your Mac, a
+                devbox, a build server — appearing in a single workspace,
+                without every host becoming another SSH window to manage.
               </p>
             </div>
           </div>
-          <p className="mt-8 leading-relaxed text-muted">
-            <span className="text-foreground">And further out: one workspace, even when the work runs
-            somewhere else.</span>{" "}
-            Today a supermu workspace lives on one host. The design direction is
-            sessions living on the machines where they belong — your Mac, a
-            devbox, a build server — while appearing in a single workspace,
-            without every host becoming another SSH window to manage.
-          </p>
         </div>
       </section>
 
